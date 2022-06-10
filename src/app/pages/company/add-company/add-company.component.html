@@ -1,0 +1,22 @@
+<nb-card>
+    <nb-card-header>Add Company</nb-card-header>
+    <nb-card-body>
+        <form [formGroup]="companyForm" (ngSubmit)="onCompanySubmit()">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                    <label for="vendorName" class="label">Vender Name</label>
+                    <input type="text" nbInput fullWidth id="vendorName" placeholder="Enter Vender Name" formControlName="vendorName">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                    <label for="vendorcode" class="label">Vender Code</label>
+                    <input type="text" nbInput fullWidth id="vendorcode" placeholder="Enter Vender code" formControlName="vendorcode">
+                    </div>
+                </div>
+            </div>
+            <button type="submit" nbButton status="danger">Submit</button>
+        </form>
+    </nb-card-body>
+</nb-card>
