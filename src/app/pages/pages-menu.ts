@@ -26,6 +26,97 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
+  {
+    title: 'User',
+    icon: 'layout-outline',
+    children: [
+      {
+        title: 'Add User',
+        link: '/pages/user/add-user',
+      },
+      {
+        title: 'View User',
+        pathMatch: 'prefix',
+        link: '/pages/user/view-user',
+      },
+    ],
+  },
+  {
+    title: 'Machine',
+    icon: 'layout-outline',
+    children: [
+      {
+        title: 'Add Machine',
+        link: '/pages/machine/add-machine',
+      },
+      {
+        title: 'View Machine',
+        pathMatch: 'prefix',
+        link: '/pages/machine/view-machine',
+      },
+    ],
+  },
+  {
+    title: 'Company PLC',
+    icon: 'edit-2-outline',
+    children: [
+      {
+        title: 'Add Company',
+        link: '/pages/company-plc/add-company-plc',
+      },
+      {
+        title: 'View Company',
+        pathMatch: 'prefix',
+        link: '/pages/company-plc/view-company-plc',
+      },
+    ],
+  },
+  {
+    title: 'Register PLC',
+    icon: 'edit-2-outline',
+    children: [
+      {
+        title: 'Add Register',
+        link: '/pages/register-plc/add-register-plc',
+      },
+      {
+        title: 'View Register',
+        pathMatch: 'prefix',
+        link: '/pages/register-plc/view-register-plc',
+      },
+    ],
+  },
+  {
+    title: 'Customer PLC',
+    icon: 'edit-2-outline',
+    children: [
+      {
+        title: 'Add Customer',
+        link: '/pages/customer-plc/add-customer-plc',
+      },
+      {
+        title: 'View Customer',
+        pathMatch: 'prefix',
+        link: '/pages/customer-plc/view-customer-plc',
+      },
+    ],
+  },
+  {
+    title: 'Method PLC',
+    icon: 'edit-2-outline',
+    children: [
+      {
+        title: 'Add Method',
+        link: '/pages/method-plc/add-method-plc',
+      },
+      {
+        title: 'View Method',
+        pathMatch: 'prefix',
+        link: '/pages/method-plc/view-method-plc',
+      },
+    ],
+  },
+
   // {
   //   title: 'Forms',
   //   icon: 'edit-2-outline',

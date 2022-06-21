@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CompanyService } from '../../../@service/company/company.service';
 
 @Component({
   selector: 'ngx-view-company',
@@ -11,36 +12,39 @@ export class ViewCompanyComponent implements OnInit {
   settings = {
     actions: false,
     columns: {
-      id: {
+      company_id: {
         title: 'ID',
         type: 'number',
       },
-      vendorName: {
-        title: 'vendor Name',
+      companyName: {
+        title: 'Company Name',
         type: 'string',
       },
-      vendorAddress: {
-        title: 'vendor Address',
+      companyEmail: {
+        title: 'Company Email',
         type: 'string',
       },
-      vendorcode: {
-        title: 'vendor Code',
+      companyNumber: {
+        title: 'Company Number',
         type: 'number',
       },
-      gstno: {
-        title: 'vendor GST',
+      companyAdd: {
+        title: 'Company Address',
         type: 'string',
       },
-      panno: {
-        title: 'vendor PAN No.',
+      companyGstNumber: {
+        title: 'Company Gst Number',
         type: 'string',
       }
     },
   };
   
-  constructor() { }
+  constructor(private comService: CompanyService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.comService.ViewCompany().subscribe((data: any) => {
+      this.source = data.Data;
+    })
   }
 
 }

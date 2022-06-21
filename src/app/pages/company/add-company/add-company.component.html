@@ -5,17 +5,44 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                    <label for="vendorName" class="label">Vender Name</label>
-                    <input type="text" nbInput fullWidth id="vendorName" placeholder="Enter Vender Name" formControlName="vendorName">
+                    <label for="companyName" class="label">Company Name</label>
+                    <input type="text" nbInput fullWidth id="companyName" placeholder="Enter Company Name" formControlName="companyName">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                    <label for="vendorcode" class="label">Vender Code</label>
-                    <input type="text" nbInput fullWidth id="vendorcode" placeholder="Enter Vender code" formControlName="vendorcode">
+                    <label for="companyEmail" class="label">Company Email</label>
+                    <input type="email" nbInput fullWidth id="companyEmail" placeholder="Enter Company Email" formControlName="companyEmail">
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                    <label for="companyNumber" class="label">Company Number</label>
+                    <input type="tel" nbInput fullWidth id="companyNumber" placeholder="Enter Company Number" formControlName="companyNumber">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                    <label for="companyGstNumber" class="label">Company Gst Number</label>
+                    <input type="text" nbInput fullWidth id="companyGstNumber" placeholder="Enter Company Gst Number" formControlName="companyGstNumber">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                    <label for="companyAdd" class="label">Company Address</label>
+                    <input type="text" nbInput fullWidth id="companyAdd" placeholder="Enter Company Address" formControlName="companyAdd">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 margin">
+                  <nb-checkbox formControlName="companyActive" status="success">Company Active</nb-checkbox>
+                </div>
+              </div>
             <button type="submit" nbButton status="danger">Submit</button>
         </form>
     </nb-card-body>

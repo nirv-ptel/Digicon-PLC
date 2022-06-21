@@ -1,0 +1,49 @@
+<nb-card>
+    <nb-card-header>Add Machine</nb-card-header>
+    <nb-card-body>
+        <form [formGroup]="machineForm" (ngSubmit)="onMachineSubmit()">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                    <label for="machineName" class="label">Machine Name</label>
+                    <input type="text" nbInput fullWidth id="machineName" placeholder="Enter Machine Name" formControlName="machineName">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                    <label for="machineIp" class="label">Machine IP</label>
+                    <input type="text" nbInput fullWidth id="machineIp" placeholder="Enter Machine IP" formControlName="machineIp">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                    <label for="machinePort" class="label">Machine Port</label>
+                    <input type="text" nbInput fullWidth id="machinePort" placeholder="Enter Machine Port" formControlName="machinePort">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                    <label for="devId" class="label">Dev Id</label>
+                    <input type="text" nbInput fullWidth id="devId" placeholder="Enter Dev Id" formControlName="devId">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                    <label for="permissionn" class="label">Permission</label>
+                    <input type="text" nbInput fullWidth id="permissionn" placeholder="Enter Permission" formControlName="permissionn">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 margin">
+                  <nb-checkbox formControlName="machineActive" status="success">Machine Active</nb-checkbox>
+                </div>
+              </div>
+            <button type="submit" nbButton status="danger">Submit</button>
+        </form>
+    </nb-card-body>
+</nb-card>

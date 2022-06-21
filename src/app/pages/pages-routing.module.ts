@@ -18,6 +18,36 @@ const routes: Routes = [{
         .then(m => m.CompanyModule),
     },
     {
+      path: 'user',
+      loadChildren: () => import('./user/user.module')
+        .then(m => m.UserModule),
+    },
+    {
+      path: 'machine',
+      loadChildren: () => import('./machine/machine.module')
+        .then(m => m.MachineModule),
+    },
+    {
+      path: 'company-plc',
+      loadChildren: () => import('./company-plc/company-plc.module')
+        .then(m => m.CompanyPlcModule),
+    },
+    {
+      path: 'customer-plc',
+      loadChildren: () => import('./customer-plc/customer-plc.module')
+        .then(m => m.CustomerPlcModule),
+    },
+    {
+      path: 'method-plc',
+      loadChildren: () => import('./method-plc/method-plc.module')
+        .then(m => m.MethodPlcModule),
+    },
+    {
+      path: 'register-plc',
+      loadChildren: () => import('./register-plc/register-plc.module')
+        .then(m => m.RegisterPlcModule),
+    },
+    {
       path: '',
       redirectTo: 'dashboard',
       pathMatch: 'full',

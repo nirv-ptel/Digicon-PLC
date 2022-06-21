@@ -1,0 +1,27 @@
+<nb-card>
+    <nb-card-header>Add Company PLC</nb-card-header>
+    <nb-card-body>
+        <form [formGroup]="companyPlcForm" (ngSubmit)="onCompanyPlcSubmit()">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                    <label for="plcName" class="label">PLC Name</label>
+                    <input type="text" nbInput fullWidth id="plcName" placeholder="Enter PLC Name" formControlName="plcName">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                    <label for="plcMode" class="label">PLC Mode</label>
+                    <input type="text" nbInput fullWidth id="plcMode" placeholder="Enter PLC Mode" formControlName="plcMode">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 margin">
+                  <nb-checkbox formControlName="active" status="success">PLC Active</nb-checkbox>
+                </div>
+              </div>
+            <button type="submit" nbButton status="danger">Submit</button>
+        </form>
+    </nb-card-body>
+</nb-card>

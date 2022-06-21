@@ -16,4 +16,11 @@ export class UserService {
     return this.http.get(`${this.url}/${Uid}`)
   }
 
+  CreateUser(user: any): Observable<any> {
+    return this.http.post(`${this.url}/signup`,user);
+  }
+
+  UserAsignCompany(Uid:number,Cid:number): Observable<any> {
+    return this.http.put(`${this.url}/${Uid}/update/${Cid}`,"");
+  }
 }
