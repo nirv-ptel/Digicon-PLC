@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NbGlobalPhysicalPosition, NbToastrService } from '@nebular/theme';
 import { CompanyService } from '../../../@service/company/company.service';
 import { MachineService } from '../../../@service/machine/machine.service';
@@ -27,7 +27,33 @@ export class AddMachineComponent implements OnInit {
       machinePort: ['', Validators.required],
       devId: ['', Validators.required],
       permissionn: ['', Validators.required],
-      machineActive: [true, Validators.required]
+      machineActive: [true, Validators.required],
+      AddRegisterData: this.fb.array([this.AddRegister()]),
+    });
+  }
+
+  
+  RegisterAdd() {
+    this.AddRegisterGet.push(this.AddRegister());
+  }
+
+  get AddRegisterGet() {
+    return this.machineForm.get('AddRegisterData') as FormArray;
+  }
+  AddRegisterRemove(i: number) {
+    if (i >= 1) {
+      this.AddRegisterGet.removeAt(i);
+    }
+  }
+
+  AddRegister() {
+    return this.fb.group({
+      registerAddress: [''],
+      registerType: [''],
+      registerTag: [''],
+      registerPermissionn: [''],
+      // register: [''],
+
     });
   }
 

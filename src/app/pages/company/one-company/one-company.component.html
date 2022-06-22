@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-md-12">
+        <nb-card>
+            <nb-card-header>
+                <a [routerLink]="['/pages/company/view-company']"><i class="icon nb-arrow-thin-left"></i></a>
+            </nb-card-header>
+        </nb-card>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <nb-card>
+            <nb-menu tag="companyManu" [items]="menu" autoCollapse="true">
+            </nb-menu>
+        </nb-card>
+    </div>
+    <div class="col-md-10">
+        <router-outlet></router-outlet>
+    </div>
+</div>

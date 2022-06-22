@@ -1,48 +1,134 @@
 <nb-card>
-    <nb-card-header>Add Machine</nb-card-header>
+    <nb-card-header>Add Panel</nb-card-header>
     <nb-card-body>
         <form [formGroup]="machineForm" (ngSubmit)="onMachineSubmit()">
             <div class="row">
-                <div class="col-md-6">
+
+                  <div class="col-md-6">
                     <div class="form-group">
-                    <label for="machineName" class="label">Machine Name</label>
-                    <input type="text" nbInput fullWidth id="machineName" placeholder="Enter Machine Name" formControlName="machineName">
+                    <label for="machineIp" class="label">Select Company</label>
+                    <nb-select placeholder="Select Company" fullWidth formControlName="machineIp">
+                        <nb-option value="Coil">Coil</nb-option>
+                        <nb-option value="InputRegister">Input Register</nb-option>
+                        <nb-option value="Holding">Holding Register</nb-option>
+                      </nb-select>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                    <label for="machineIp" class="label">Machine IP</label>
-                    <input type="text" nbInput fullWidth id="machineIp" placeholder="Enter Machine IP" formControlName="machineIp">
+                    <label for="machineName" class="label">Panel Name</label>
+                    <input type="text" nbInput fullWidth id="machineName" placeholder="Enter Panel Name" formControlName="machineName">
                     </div>
                 </div>
             </div>
             <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                    <label for="machinePort" class="label">PLC IP Address</label>
+                    <input type="text" nbInput fullWidth id="machinePort" placeholder="Enter PLC IP Address" formControlName="machinePort">
+                    </div>
+                </div>
                 <div class="col-md-6">
                     <div class="form-group">
                     <label for="machinePort" class="label">Machine Port</label>
                     <input type="text" nbInput fullWidth id="machinePort" placeholder="Enter Machine Port" formControlName="machinePort">
                     </div>
                 </div>
-                <div class="col-md-6">
+            </div>
+            <div class="row">
+
+                <div class="col-md-4">
                     <div class="form-group">
                     <label for="devId" class="label">Dev Id</label>
                     <input type="text" nbInput fullWidth id="devId" placeholder="Enter Dev Id" formControlName="devId">
                     </div>
                 </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                    <label for="machineIp" class="label">Select PLC</label>
+                    <nb-select placeholder="Select PLC" fullWidth formControlName="machineIp">
+                        <nb-option value="Coil">Coil</nb-option>
+                        <nb-option value="InputRegister">Input Register</nb-option>
+                        <nb-option value="Holding">Holding Register</nb-option>
+                      </nb-select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                    <label for="machineIp" class="label">Select PLC Model</label>
+                    <nb-select placeholder="Select PLC Model" fullWidth formControlName="machineIp">
+                        <nb-option value="Coil">Coil</nb-option>
+                        <nb-option value="InputRegister">Input Register</nb-option>
+                        <nb-option value="Holding">Holding Register</nb-option>
+                      </nb-select>
+                    </div>
+                </div>
             </div>
-            <div class="row">
+            <div formArrayName="AddRegisterData">
+                <div *ngFor="let party of AddRegisterGet.controls; let i = index">
+                    <div [formGroupName]="i">
+                        <div class="row">
+                            <div class="col-md-2">
+                              <div class="form-group">
+                                <label for="type-{{i}}" class="label">Register Address</label>
+                                <!-- <input type="text" nbInput fullWidth id="type-{{i}}" placeholder="Type"
+                                  formControlName="type"> -->
+                                  <nb-select placeholder="Select Register Address" fullWidth formControlName="registerAddress">
+                                    <nb-option value="Coil">Coil</nb-option>
+                                    <nb-option value="InputRegister">Input Register</nb-option>
+                                    <nb-option value="Holding">Holding Register</nb-option>
+                                  </nb-select>
+                              </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                  <label for="registerType-{{i}}" class="label">Register Type</label>
+                                  <input type="text" nbInput fullWidth id="registerType-{{i}}"
+                                    placeholder="Register Type" formControlName="registerType">
+                                </div>
+                              </div>
+                            <div class="col-md-2">
+                              <div class="form-group">
+                                <label for="registerTag-{{i}}" class="label">Register Tag</label>
+                                <input type="text" nbInput fullWidth id="registerTag-{{i}}"
+                                  placeholder="Register Tag" formControlName="registerTag">
+                              </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                  <label for="registerPermissionn-{{i}}" class="label">Register Permissionn</label>
+                                  <!-- <input type="text" nbInput fullWidth id="registerPermissionn-{{i}}"
+                                    placeholder="Register Permissionn" formControlName="registerPermissionn"> -->
+                                    <nb-select placeholder="Select Register Permission" fullWidth formControlName="registerPermissionn">
+                                        <nb-option value="r">Read</nb-option>
+                                        <nb-option value="Write">Write</nb-option>
+                                        <nb-option value="rW">Read & Write</nb-option>
+                                      </nb-select>
+                                </div>
+                              </div>
+                            <div class="col-md-2">
+                                <label class="label"></label>
+                                <button nbButton *ngIf="i>=1" status="danger"
+                                    (click)="AddRegisterRemove(i)">Remove</button>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
                     <label for="permissionn" class="label">Permission</label>
                     <input type="text" nbInput fullWidth id="permissionn" placeholder="Enter Permission" formControlName="permissionn">
                     </div>
                 </div>
-            </div>
-            <div class="row">
+            </div> -->
+            <!-- <div class="row">
                 <div class="col-md-4 margin">
                   <nb-checkbox formControlName="machineActive" status="success">Machine Active</nb-checkbox>
                 </div>
-              </div>
+              </div> -->
+              <button type="button" nbButton status="success" class="marginBtn" (click)="RegisterAdd()">Add</button>
             <button type="submit" nbButton status="danger">Submit</button>
         </form>
     </nb-card-body>

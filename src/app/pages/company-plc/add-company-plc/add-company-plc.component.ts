@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NbGlobalPhysicalPosition, NbToastrService } from '@nebular/theme';
 import { CompanyPlcService } from '../../../@service/company-plc/company-plc.service';
 
@@ -22,9 +22,32 @@ export class AddCompanyPlcComponent implements OnInit {
     this.companyPlcForm = this.fb.group({
       plcName: ['', Validators.required],
       plcMode: ['', Validators.required],
-      active: [true, Validators.required]
+      active: [true, Validators.required],
+      AddAddressData: this.fb.array([this.AddAddress()]),
     });
   }
+
+
+  AddressAdd() {
+    this.AddAddressGet.push(this.AddAddress());
+  }
+
+  get AddAddressGet() {
+    return this.companyPlcForm.get('AddAddressData') as FormArray;
+  }
+  AddAddressRemove(i: number) {
+    if (i >= 1) {
+      this.AddAddressGet.removeAt(i);
+    }
+  }
+
+  AddAddress() {
+    return this.fb.group({
+      type: [''],
+      address: [''],
+    });
+  }
+
 
   onCompanyPlcSubmit() {
     this.comPlcService.CreateCompanyPlc(this.companyPlcForm.value).subscribe((data: any) => {
@@ -33,8 +56,9 @@ export class AddCompanyPlcComponent implements OnInit {
     },(error: any) => {
       this.allAlert('danger', `Not Created !`, `${error.error.message}`);
     })
-
   }
+
+
   allAlert(alertMsg, headMsg, msg) {
     const config = {
       status: alertMsg,

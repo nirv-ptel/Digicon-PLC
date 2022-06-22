@@ -10,7 +10,17 @@ export class ViewCompanyPlcComponent implements OnInit {
 
   source: any = [];
   settings = {
-    actions: false,
+    actions: {
+      delete: false,
+      add: false,
+      edit: false,
+      custom: [
+        {
+          name: 'Button',
+          title: '<i class="nb-list" title="View"></i>',
+        }],
+      position: 'right'
+    },
     columns: {
       plcCompanyId: {
         title: 'ID',
@@ -38,5 +48,7 @@ export class ViewCompanyPlcComponent implements OnInit {
       this.source = data.Data;
     })
   }
+
+
 
 }

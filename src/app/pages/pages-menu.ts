@@ -42,30 +42,30 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ],
   },
   {
-    title: 'Machine',
+    title: 'Add Panel',
     icon: 'layout-outline',
     children: [
       {
-        title: 'Add Machine',
+        title: 'Add Panel',
         link: '/pages/machine/add-machine',
       },
       {
-        title: 'View Machine',
+        title: 'View Panel',
         pathMatch: 'prefix',
         link: '/pages/machine/view-machine',
       },
     ],
   },
   {
-    title: 'Company PLC',
+    title: 'PLC Configuration',
     icon: 'edit-2-outline',
     children: [
       {
-        title: 'Add Company',
+        title: 'Add PLC',
         link: '/pages/company-plc/add-company-plc',
       },
       {
-        title: 'View Company',
+        title: 'View PLC',
         pathMatch: 'prefix',
         link: '/pages/company-plc/view-company-plc',
       },

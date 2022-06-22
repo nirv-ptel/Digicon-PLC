@@ -11,6 +11,7 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NbActionsModule, NbButtonModule, NbCardModule, NbCheckboxModule, NbDatepickerModule, NbDialogModule, NbIconModule, NbInputModule, NbRadioModule, NbSelectModule, NbStepperModule, NbTabsetModule, NbToggleModule } from '@nebular/theme';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ThemeModule } from '../../@theme/theme.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
+    ThemeModule,
     MachineRoutingModule,
     Ng2SearchPipeModule,
     Ng2OrderModule,

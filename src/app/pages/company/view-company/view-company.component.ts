@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { LoginService } from '../../../@service/auth/login.service';
 import { CompanyService } from '../../../@service/company/company.service';
 
 @Component({
@@ -10,7 +12,17 @@ export class ViewCompanyComponent implements OnInit {
 
   source: any = [];
   settings = {
-    actions: false,
+    actions: {
+      delete: false,
+      add: false,
+      edit: false,
+      custom: [
+        {
+          name: 'Button',
+          title: '<i class="nb-list" title="View"></i>',
+        }],
+      position: 'right'
+    },
     columns: {
       company_id: {
         title: 'ID',
@@ -38,13 +50,19 @@ export class ViewCompanyComponent implements OnInit {
       }
     },
   };
-  
-  constructor(private comService: CompanyService) { }
+
+  constructor(private comService: CompanyService,
+    private _router: Router
+  ) { }
 
   ngOnInit() {
     this.comService.ViewCompany().subscribe((data: any) => {
       this.source = data.Data;
     })
+  }
+
+  ViewCompanyDetails(event) {
+    this._router.navigateByUrl(`pages/company/one-company/${event.company_id}`);
   }
 
 }
