@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NbGlobalPhysicalPosition, NbToastrService } from '@nebular/theme';
 import { CompanyPlcService } from '../../../@service/company-plc/company-plc.service';
 import { RegisterPlcService } from '../../../@service/regster-plc/register-plc.service';
@@ -12,6 +12,7 @@ import { RegisterPlcService } from '../../../@service/regster-plc/register-plc.s
 export class AddRegisterPlcComponent implements OnInit {
 
   registerPlcForm: FormGroup;
+  companyPlc: any;
   
   constructor(
     private comPlcService: CompanyPlcService,
@@ -22,8 +23,20 @@ export class AddRegisterPlcComponent implements OnInit {
 
   ngOnInit(): void {
     this.registerPlcForm = this.fb.group({
-
+      plcRegister: [null, Validators.required],
+      active: [true, Validators.required],
+      companyPlcData: this.fb.group({
+        plcCompanyId: [null, Validators.required],
+      })
     });
+
+    this.comPlcService.ViewCompanyPlc().subscribe((data: any) => {
+      this.companyPlc = data.Data;
+    })
+  }
+
+  onRegisterPlcSubmit() {
+    console.warn(this.registerPlcForm.value);
   }
 
   allAlert(alertMsg, headMsg, msg) {

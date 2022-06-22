@@ -16,6 +16,10 @@ export class UserService {
     return this.http.get(`${this.url}/${Uid}`)
   }
 
+  ViewAllUser(): Observable<any> {
+    return this.http.get(`${this.url}`);
+  }
+
   CreateUser(user: any): Observable<any> {
     return this.http.post(`${this.url}/signup`,user);
   }

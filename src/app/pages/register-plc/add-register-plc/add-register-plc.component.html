@@ -1,1 +1,30 @@
-<p>add-register-plc works!</p>
+<nb-card>
+    <nb-card-header>Add Register PLC</nb-card-header>
+    <nb-card-body>
+        <form [formGroup]="registerPlcForm" (ngSubmit)="onRegisterPlcSubmit()">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                    <label for="plcRegister" class="label">PLC Register</label>
+                    <input type="text" nbInput fullWidth id="plcRegister" placeholder="Enter PLC Register" formControlName="plcRegister">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group" formGroupName="companyPlcData">
+                    <label for="plcCompanyId" class="label">PLC Company</label>
+                    <nb-select placeholder="Select PLC Company" fullWidth formControlName="plcCompanyId">
+                        <nb-option *ngFor="let item of companyPlc" value="{{ item.plcCompanyId }}">{{ item.plcName }}
+                        </nb-option>
+                      </nb-select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 margin">
+                  <nb-checkbox formControlName="active" status="success">Register Active</nb-checkbox>
+                </div>
+              </div>
+            <button type="submit" nbButton status="danger">Submit</button>
+        </form>
+    </nb-card-body>
+</nb-card>
