@@ -60,12 +60,8 @@ export class OneCompanyComponent implements OnInit {
         link: '/pages/machine/view-machine',
       },
     ],
-  },], 'companyManu');
+  }], 'companyManu');
     
-  }
-  toggle() {
-    this.sidebarService.toggle(true);
-    return false;
   }
 
 }
